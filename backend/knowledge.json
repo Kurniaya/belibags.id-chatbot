@@ -1,0 +1,23 @@
+
+{
+  "keywords": {
+    "jam buka": "jam operasional",
+    "jam operasional": "jam operasional",
+    "buka": "jam operasional",
+    "alamat": "alamat",
+    "lokasi": "alamat",
+    "dimana": "alamat",
+    "cara pesan": "cara pesan",
+    "cara order": "cara pesan",
+    "order": "cara pesan",
+    "pemesanan": "cara pesan",
+    "kontak": "kontak",
+    "nomor whatsapp": "kontak"
+  },
+  "responses": {
+    "jam operasional": "Untuk informasi jam operasional Belibags.id, silakan hubungi admin toko melalui WhatsApp ini.",
+    "alamat": "Untuk informasi alamat atau lokasi toko Belibags.id, silakan hubungi admin melalui WhatsApp ini.",
+    "cara pesan": "Untuk melakukan pemesanan, kamu bisa memilih produk dari katalog Tokotas, lalu kirimkan nama produk yang diinginkan melalui chat WhatsApp ini.",
+    "kontak": "Selamat datang di layanan pelanggan Belibags.id! Kamu sedang terhubung dengan WhatsApp toko kami. Silakan tanyakan informasi produk atau pemesanan melalui chat ini."
+  }
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Katalog produk tas Belibags.id. Temukan tas favorit untuk aktivitas sehari-hari.">
+  <title>Belibags.id — Find Your Perfect Bag</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/style.css">
+  <script src="https://cdn.jsdelivr.net/npm/papaparse@5.4.1/papaparse.min.js"></script>
+  <script src="js/script.js" defer></script>
+
+</head>
+
+
+
+<body>
+  <header class="site-header">
+    <a class="brand" href="#" aria-label="Belibags.id beranda">beli<span>bags</span><small>.id</small></a>
+    <nav class="main-nav" aria-label="Navigasi utama">
+      <a href="#home">Home</a>
+      <a href="#catalog">Collection</a>
+      <a href="#about">About</a>
+    </nav>
+    <a class="header-cta" href="#catalog">Explore Bags <span>↗</span></a>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> YOUR EVERYDAY BAG STORE</p>
+        <h1>Find Your<br><em>Perfect Bag.</em></h1>
+        <p class="hero-description">A little bag, a lot of possibilities. Temukan tas yang cocok untuk menemani setiap aktivitasmu.</p>
+        <a class="primary-button" href="#catalog">Explore Collection <span>→</span></a>
+        <div class="hero-note"><span class="note-star">✳</span> Discover your everyday favorite</div>
+      </div>
+      <div class="hero-art" aria-label="Ilustrasi koleksi tas">
+        <div class="art-circle"></div>
+        <div class="art-label label-top">THE BAG EDITION</div>
+        <img src="https://down-id.img.susercontent.com/file/id-11134207-822wq-mlm4m6568mx198" alt="Tas koleksi Belibags.id" onerror="this.style.display='none'">
+        <div class="art-sticker">made for<br>your day ♡</div>
+      </div>
+    </section>
+
+    <section class="trust-strip" aria-label="Informasi katalog">
+      <div><strong id="total-products">465+</strong><span>Product collections</span></div>
+      <div><strong>Everyday</strong><span>Bag essentials</span></div>
+      <div><strong>Belibags.id</strong><span>Find your favorite</span></div>
+    </section>
+
+    <section class="catalog-section" id="catalog">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">CURATED FOR YOU</p>
+          <h2>Our Collection<span>.</span></h2>
+          <p class="section-subtitle">Explore pilihan tas dari Belibags.id.</p>
+        </div>
+        <div class="catalog-count" id="result-count">Memuat produk...</div>
+      </div>
+
+      <div class="toolbar">
+        <label class="search-box">
+          <span aria-hidden="true">⌕</span>
+          <input id="search-input" type="search" placeholder="Cari nama tas..." autocomplete="off">
+        </label>
+        <select id="category-filter" aria-label="Filter kategori">
+          <option value="all">Semua kategori</option>
+          <option value="anak">Tas anak</option>
+          <option value="backpack">Backpack</option>
+          <option value="tote">Tote bag</option>
+          <option value="lainnya">Lainnya</option>
+        </select>
+        <select id="sort-select" aria-label="Urutkan produk">
+          <option value="default">Urutan awal</option>
+          <option value="low">Harga terendah</option>
+          <option value="high">Harga tertinggi</option>
+          <option value="name">Nama A–Z</option>
+        </select>
+      </div>
+
+      <div id="loading-state" class="state-message">Sedang memuat koleksi produk...</div>
+      <div id="error-state" class="state-message error-state" hidden>
+        Data produk belum berhasil dimuat. Pastikan file <code>data/products.csv</code> tersedia dan website dibuka melalui local server.
+      </div>
+      <div class="product-grid" id="product-grid"></div>
+      <div class="empty-state" id="empty-state" hidden>
+        <span>♡</span>
+        <h3>Produk tidak ditemukan</h3>
+        <p>Coba gunakan kata kunci lain.</p>
+      </div>
+      <div class="pagination" id="pagination"></div>
+    </section>
+
+    <section class="about-section" id="about">
+      <div class="about-mark">b.</div>
+      <div>
+        <p class="eyebrow">A LITTLE ABOUT US</p>
+        <h2>Every bag has<br>a story to carry.</h2>
+        <p>Belibags.id menghadirkan beragam pilihan tas untuk menemani kebutuhan sehari-hari. Jelajahi katalog dan temukan pilihan yang sesuai dengan gayamu.</p>
+        <a href="#catalog" class="text-link">Find your bag <span>→</span></a>
+      </div>
+    </section>
+  </main>
+
+    <footer class="site-footer">
+    <a class="brand" href="#">beli<span>bags</span><small>.id</small></a>
+    <p>Find your perfect bag. © <span id="current-year"></span> Belibags.id</p>
+    <a href="#home">Back to top ↑</a>
+  </footer>
+
+  <!-- RAG Chatbot -->
+<div id="chatbot" class="chatbot">
+  <button id="chatbotToggle" class="chatbot-toggle">
+    💬 Tanya Belibags
+  </button>
+
+  <div id="chatbotWindow" class="chatbot-window" hidden>
+    <div class="chatbot-header">
+      <div>
+        <strong>Belibags Assistant</strong>
+        <small>Asisten katalog Belibags.id</small>
+      </div>
+      <button id="chatbotClose" type="button">×</button>
+    </div>
+
+    <div id="chatbotMessages" class="chatbot-messages">
+      <div class="bot-message">
+        Halo! Ada yang bisa saya bantu? Kamu bisa bertanya tentang produk tas kami.
+      </div>
+    </div>
+
+    <form id="chatbotForm" class="chatbot-form">
+      <input
+        id="chatbotInput"
+        type="text"
+        placeholder="Tanyakan produk di sini..."
+        autocomplete="off"
+        required
+      />
+      <button type="submit">Kirim</button>
+    </form>
+  </div>
+</div>
+  <!-- Floating WhatsApp Button -->
+  <a
+    id="whatsappButton"
+    class="whatsapp-button"
+    href="#"
+    target="_blank"
+    rel="noopener noreferrer"
+    aria-label="Chat WhatsApp Belibags"
+  >
+    <span class="wa-icon">◉</span>
+    <span>Chat WhatsApp</span>
+  </a>
+
+  <script></script>
+</body>
+</html>
